@@ -29,7 +29,14 @@ of "md5"
 * `sudo sed -i 's%\(^host\s\+all\s\+all\s\+127\.0\.0\.1/32\s\+\)md5$%\1trust%' /etc/postgresql/11/main/pg_hba.conf`
 * sudo systemctl restart postgresql
 
-# now finish the installation
+# configure Apache
+
+not going to deal with this here. if you're a system administrator, you've
+likely done this a few hundred times already.
+
+# now finish the installation via browser
+
+* # NOTE: this is horribly insecure! you're in a race with millions of wannabe "hackers" who will already be probing your system to see if there's an unconfigured phpbb system to take over. work fast!
 
 * firefox http://installation-url/phpBB/  # and follow the instructions
 
