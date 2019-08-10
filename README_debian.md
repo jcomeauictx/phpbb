@@ -10,9 +10,8 @@ such as those related to `chown`ing the files to the Apache user `www-data`.
 * mkdir vendor
 * php ../composer.phar install  # NOTE: all this does is install packages under the vendor directory
 * cd ..
-* cp -a phpBB /path/to/installation
-* chown -R www-data.www-data /path/to/installation  # makes directories writable for installation
-* rm -rf phpBB/vendor  # doesn't belong in repo
+* sudo cp -a phpBB /path/to/installation
+* sudo chown -R www-data.www-data /path/to/installation  # makes directories writable for installation
 
 # now create the database
 
@@ -40,8 +39,14 @@ likely done this a few hundred times already.
 
 * firefox http://installation-url/phpBB/  # and follow the instructions
 
-accept all defaults except possibly for the last page, the bulletin board
-name and description.
+* for easiest installation, accept all defaults except:
+
+    * first page, Administrator configuration, fill it all out
+    * second page, Database configuration, enter:
+        * DSN: 127.0.0.1
+        * Database username: phpbb
+        * Database name: phpbb
+    * final page, Bulletin board configuration, set title and description
 
 the email setup, if necessary, isn't discussed here. from memory, I had to
 install exim4, `dpkg-reconfigure exim4-config` and change it to an "Internet
