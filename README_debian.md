@@ -22,11 +22,21 @@ such as those related to `chown`ing the files to the Apache user `www-data`.
 * create database phpbb owner phpbb;
 * \q
 
-# because we're using postgresql roles instead of system users, we must
-# make sure to configure postgresql accordingly, with "trust" method instead
-# of "md5"
+because we're using postgresql roles instead of system users, we must
+make sure to configure postgresql accordingly, with "trust" method instead
+of "md5"
 
 * `sudo sed -i 's%\(^host\s\+all\s\+all\s\+127\.0\.0\.1/32\s\+\)md5$%\1trust%' /etc/postgresql/11/main/pg_hba.conf`
+* sudo systemctl restart postgresql
 
 # now finish the installation
+
 * firefox http://installation-url/phpBB/  # and follow the instructions
+
+accept all defaults except possibly for the last page, the bulletin board
+name and description.
+
+the email setup, if necessary, isn't discussed here. from memory, I had to
+install exim4, `dpkg-reconfigure exim4-config` and change it to an "Internet
+connected" system, add SPF records to the domain, and set a PTR record for
+the IP number, in order for it to successfully send mail to other systems.
