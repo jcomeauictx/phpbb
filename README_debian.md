@@ -40,3 +40,7 @@ the email setup, if necessary, isn't discussed here. from memory, I had to
 install exim4, `dpkg-reconfigure exim4-config` and change it to an "Internet
 connected" system, add SPF records to the domain, and set a PTR record for
 the IP number, in order for it to successfully send mail to other systems.
+
+# when installation is complete
+
+* sudo mv /path/to/installation/phpBB/install ~/phpbb.install  # save the install directory to your home or elsewhere
